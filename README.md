@@ -156,17 +156,18 @@ You can now enable the firewall, and should see the ports being allowed by runni
   sudo ufw enable
   ```  
 
-*****Note<sup>1</sup>**: Default ufw behavior is**  
+*****Note<sup> 1</sup>**: Default ufw behavior is**  
 * Deny all incoming
 * Allow all outgoing
 * Deny all routed
-
-
-*****Note<sup>2</sup>**: When using Docker containers**    
-Docker handles ports directly, and it can circumvent the firewall rules set up through ufw.  
-For more details on how to address:  
-* [ufw-docker](https://github.com/chaifeng/ufw-docker)
-* [whalewall](https://github.com/capnspacehook/whalewall)
+  
+  
+*****Note<sup> 2</sup>**: When using Docker containers**  
+    
+* Docker handles ports directly, and it can circumvent the firewall rules set up through ufw.  
+* For more details on how to address:  
+  * [ufw-docker](https://github.com/chaifeng/ufw-docker)
+  * [whalewall](https://github.com/capnspacehook/whalewall)
 
 
 
