@@ -47,9 +47,9 @@ Set up automatic unattended system updates:
 
 ### 2. Set Static IP
 
-Reserve static IP address for the machine, either through DHCP lease (router settings) or in configuration files.
+Reserve static IP address for the server, either through DHCP lease (router settings) or in host configuration files.
 
-Example setting up static IP on machine:
+Example setting up static IP on host config:
   ```   
   sudo nano /etc/netplan/50-cloud-init.yaml
   ```
