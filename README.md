@@ -166,8 +166,59 @@ You can now enable the firewall, and should see the ports being allowed by runni
     
 * Docker handles ports directly, and it can circumvent the firewall rules set up through ufw.  
 * For more details on how to address:  
+  * [How To Use Docker with a UFW Firewall](https://www.howtogeek.com/devops/how-to-use-docker-with-a-ufw-firewall/)
   * [ufw-docker](https://github.com/chaifeng/ufw-docker)
   * [whalewall](https://github.com/capnspacehook/whalewall)
+
+
+
+## Set Up Docker & Portainer
+
+By using Docker containers to run services and applications, you are ensuring a layer of separation between the program environments and the host machine, as well as portability of those installations.  
+  
+For setting up configuration files, use Docker Compose. This means you have permanent .yaml files that you can easily edit use to spin up or bring down docker containers.  
+  
+Finally, use Portainer as a web GUI to easily view all things Docker-related running on the host server, including containers, stacks, and networks.  
+
+#### Resources:
+* [Portainer Official Install](https://docs.portainer.io/start/install-ce/server/docker/linux)  
+
+
+To install docker, run:
+
+  ```
+  sudo apt install docker.io
+  ```
+
+Docker Compose is included within the Docker Engine, so no separate install is necessary.  
+
+To install Portainer, first create the volume that Portainer Server will use to store its database:  
+
+  ```
+  docker volume create portainer_data
+  ```
+
+Then, download and install the Portainer Server container:  
+
+  ```
+  docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.2
+  ```
+
+Portainer Server has now been installed. You can check to see whether the Portainer Server container has started by running `docker ps`:  
+
+  ```
+  root@server:~# docker ps
+  CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS      PORTS                                                                                  NAMES             
+  de5b28eb2fa9   portainer/portainer-ce:2.21.2  "/portainer"             2 weeks ago   Up 9 days   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:9443->9443/tcp, :::9443->9443/tcp   portainer
+  ```
+
+Now that the installation is complete, you can log into your Portainer Server instance by opening a web browser and going to:  
+
+  ```
+  https://[YOUR-HOST-IP]:9443
+  ```
+
+The host server is now ready and set up to begin running containerized services and applications.  
 
 
 
