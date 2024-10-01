@@ -222,7 +222,34 @@ The host server is now ready and set up to begin running containerized services 
 
 
 
+# Services
 
+## 1. AdGuard Home DNS Sinkhole & Resolver
+
+Create a new directory for the service:
+
+  ```
+  mkdir /opt/adguardhome
+  ```  
+
+Change into the directory, and create a new docker compose file for the service:
+
+  ```
+  sudo touch docker-compose.yml
+  sudo nano docker-compose.yml 
+  ```
+
+Use this configuration file, paste it into the `docker-compose.yml`.  
+
+
+
+## 2. Wireguard VPN Tunnel
+
+## 3. Vaultwarden Password Manager
+
+## 4. Nginx Proxy Manager
+
+## 5. Portainer 
 
 
 
