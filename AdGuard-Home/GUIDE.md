@@ -1,4 +1,6 @@
-#### Resources:
+# AdGuard Home DNS Sinkhole
+
+## Resources:
 * Docker macvlan networks with IPV6
   * [Reddit - Docker Deployments and IPv6](https://www.reddit.com/r/ipv6/comments/1alpzmb/docker_deployments_and_ipv6_how_do_you_do_it/)
   * [Reddit - Change Configuration of Existing Docker Network](https://stackoverflow.com/questions/64596780/how-to-change-configuration-of-existing-docker-network)
@@ -9,6 +11,7 @@
   * Old, corrected by the two above: [Reddit - Docker Macvlan the Correct Way](https://www.reddit.com/r/selfhosted/comments/rzbz6h/docker_macvlan_the_correct_way/)
 
    
+## Guide:  
 
 Create a new directory for the service:
 
