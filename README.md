@@ -230,16 +230,23 @@ Create a new directory for the service:
 
   ```
   mkdir /opt/adguardhome
+  ```
+
+Create two sub-directories that will be needed to store data for the service:  
+
+  ```
+  mkdir /opt/adguardhome/data
+  mkdir /opt/adguardhome/conf
   ```  
 
-Change into the directory, and create a new docker compose file for the service:
+Change into the `/opt/adguardhome` directory, and create a new docker compose file for the service:
 
   ```
   sudo touch docker-compose.yml
   sudo nano docker-compose.yml 
   ```
 
-Use [this configuration file](AdGuard-Home/docker-compose.yml), paste it into the `docker-compose.yml`.  
+Use [this configuration file](AdGuard-Home/docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
 
 
