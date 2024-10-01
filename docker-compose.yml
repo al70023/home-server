@@ -1,0 +1,48 @@
+services:
+  adguardhome:
+    image: 'adguard/adguardhome:latest'
+    container_name: 'adguardhome'
+    restart: 'unless-stopped'
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      - './data:/opt/adguardhome/work' # Data directory
+      - './conf:/opt/adguardhome/conf' # Configuration file
+    ports:
+      # DNS Ports
+      - 53:53/tcp
+      - 53:53/udp
+      # DNS over HTTPs
+      #- "443:443/tcp"
+      # DNS over TLS
+      #- "853:853/tcp"
+      # DNS over QUIC
+      #- "784:784/udp"
+      # DNS Crypt
+      #- "5443:5443/tcp"
+      #- "5443:5443/udp"
+      # DHCP Ports
+      #- "67:67/udp"
+      #- "68:68/tcp"
+      #- "68:68/udp"
+      # Dashboard
+      - 3000:3000/tcp
+      - 80:80/tcp
+    networks:
+      macvlan:
+        ipv4_address: 192.168.1.3
+
+networks:
+  macvlan:
+    driver: macvlan
+    enable_ipv6: true
+    driver_opts:
+      parent: enx202351926529
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.254
+          ip_range: 192.168.1.3/32
+
+        - subnet: 2600:1700:b0a0:e0a0::/64
+          gateway: 2600:1700:b0a0:e0a0::1  # IPv6 (external) of router
+
