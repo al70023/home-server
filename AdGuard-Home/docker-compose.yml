@@ -29,19 +29,19 @@ services:
       - 80:80/tcp
     networks:
       macvlan:
-        ipv4_address: 192.168.1.3
+        ipv4_address: 192.168.1.3  # Desired IP address of this DNS Server
 
 networks:
   macvlan:
     driver: macvlan
-    enable_ipv6: true
+    enable_ipv6: true    # Optional, only if wanting IPv6 support 
     driver_opts:
-      parent: enx202351926529
+      parent: eth0       # Your network interface
     ipam:
       config:
-        - subnet: 192.168.1.0/24
-          gateway: 192.168.1.254
-          ip_range: 192.168.1.3/32
+        - subnet: 192.168.1.0/24     # Your home network subnet
+          gateway: 192.168.0.254     # Your home network router/gateway for internet access
+          ip_range: 192.168.1.3/32   # Desired IP address of this DNS Server
 
-        - subnet: 2600:1700:b0a0:e0a0::/64
-          gateway: 2600:1700:b0a0:e0a0::1  # IPv6 (external) of router
+        - subnet: xx:xx:xx:xx::/64     # Your IPv6 subnet here, if needed
+          gateway: xx:xx:xx:xx:xx::1   # IPv6 (external) of router
