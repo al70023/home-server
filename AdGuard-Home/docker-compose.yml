@@ -29,7 +29,7 @@ services:
       - 80:80/tcp
     networks:
       macvlan:
-        ipv4_address: 192.168.1.3  # Desired IP address of this DNS Server
+        ipv4_address: 192.168.10.3  # Desired IP address of this DNS Server
 
 networks:
   macvlan:
@@ -39,9 +39,9 @@ networks:
       parent: eth0       # Your network interface
     ipam:
       config:
-        - subnet: 192.168.1.0/24     # Your home network subnet
-          gateway: 192.168.0.254     # Your home network router/gateway for internet access
-          ip_range: 192.168.1.3/32   # Desired IP address of this DNS Server
+        - subnet: 192.168.10.0/24     # Your home network subnet
+          gateway: 192.168.10.254     # Your home network router/gateway for internet access
+          ip_range: 192.168.10.3/32   # Desired IP address of this DNS Server
 
         - subnet: xx:xx:xx:xx::/64     # Your IPv6 subnet here, if needed
           gateway: xx:xx:xx:xx:xx::1   # IPv6 (external) of router
