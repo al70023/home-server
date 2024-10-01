@@ -239,7 +239,7 @@ Change into the directory, and create a new docker compose file for the service:
   sudo nano docker-compose.yml 
   ```
 
-Use this configuration file, paste it into the `docker-compose.yml`.  
+Use [this configuration file](AdGuard-Home/docker-compose.yml), paste it into the `docker-compose.yml`.  
 
 
 
