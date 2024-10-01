@@ -1,5 +1,9 @@
 # AdGuard Home DNS Sinkhole
 
+This docker container exposes ports 53 (DNS), 80 (HTTP), and 3000 (Web GUI initial setup).  
+  
+Once the container is spun up, navigate to x.x.x.x:3000 to log in, where x.x.x.x is the IP address specified in the configuration file.   
+
 ## Resources:
 * Docker macvlan networks with IPV6
   * [Reddit - Docker Deployments and IPv6](https://www.reddit.com/r/ipv6/comments/1alpzmb/docker_deployments_and_ipv6_how_do_you_do_it/)
