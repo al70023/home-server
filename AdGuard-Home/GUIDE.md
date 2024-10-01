@@ -30,4 +30,4 @@ Change into the `/opt/adguardhome` directory, and create a new docker compose fi
   sudo nano docker-compose.yml 
   ```
 
-Use [the .yml configuration file](AdGuard-Home/docker-compose.yml), paste it into the `docker-compose.yml`, and save it.
+Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.
