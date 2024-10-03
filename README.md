@@ -233,7 +233,11 @@ This service will be implemented via a macvlan docker network, so that it can vi
 All setup can be found [here](AdGuard-Home/GUIDE.md).  
 
 
-## 2. Wireguard VPN Tunnel
+## 2. Wireguard VPN Tunnel  
+
+This will allow securely tunneling into the host machine from any external client not on the same home network.  
+
+ALl setup can be found [here](Wireguard/GUIDE.md).
 
 ## 3. Vaultwarden Password Manager
 
