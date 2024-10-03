@@ -25,7 +25,7 @@ A Dynamic DNS is required if you need to find your home network and you don’t 
 
 A DDNS is a service that gives you a hostname (a web address) that always points to your home network’s public IP address. There are many DDNS services, but this setup will use Duck DNS, which is free, permanent, and simple to use.  
 
-Go to [duckdns.org](duckdns.org) and sign in using your preferred method. Then, create a domain with any name that you like, as long as it isn’t already taken.  
+Go to [duckdns.org](https://www.duckdns.org/) and sign in using your preferred method. Then, create a domain with any name that you like, as long as it isn’t already taken.  
 
 ![image](https://github.com/user-attachments/assets/66a0f908-1178-4448-a2d9-64ec0b185d57)  
 
