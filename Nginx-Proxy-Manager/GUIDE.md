@@ -59,4 +59,7 @@ Finally, create a custom bridge network that is specified in the configuration f
 
 Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:81 to log in.  
 
-  
+
+## Adding SSL Certificates:  
+
+## Creating Proxy Hosts:  
