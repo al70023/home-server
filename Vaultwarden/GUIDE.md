@@ -4,7 +4,7 @@ This docker container exposes port 8080 (host) to port 80 (container) for the we
   
 Once the container is spun up, navigate to x.x.x.x:8080 to log in, where x.x.x.x is the IP address specified in the configuration file.   
 
-Later, once Nginx Proxy Manager is configured, go back and remove the line that exposes port 51821, as the web GUI will only be accessible through the Proxy. Also, you will remove the default network created with this container, and instead attach this to the Nginx proxy docker network.  
+Later, once Nginx Proxy Manager is configured, go back and remove ports section, as the web GUI will only be accessible through the Proxy. Also, you will remove the default network created with this container, and instead attach this to the Nginx proxy docker network.  
 
 
 ## Resources:
