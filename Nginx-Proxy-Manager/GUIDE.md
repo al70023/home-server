@@ -13,6 +13,7 @@ This setup also involves creating a custom bridge docker network for managing th
     
 * Setup
   * [Self Hosting on Your Home Server - Cloudflare + Nginx Proxy Manager](https://www.youtube.com/watch?v=GarMdDTAZJo&t=567s)
+  * [Nginx Proxy Manager Advanced Configuration - Docker Networks](https://nginxproxymanager.com/advanced-config/)
 
 
 ## Duck DNS Setup:
@@ -50,6 +51,12 @@ Change into the `/opt/nginxproxymanager` directory, and create a new docker comp
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now, on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:81 to log in.  
+Finally, create a custom bridge network that is specified in the configuration file, so that the Nginx container will be attached to this network, and not a default docker bridge:  
+
+  ```
+  docker network create npm_proxy
+  ```
+
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:81 to log in.  
 
   
