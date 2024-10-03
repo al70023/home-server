@@ -51,3 +51,7 @@ Now spin up the container with `docker compose up -d`, and on any device on the 
 
 You should get an error, that your web browser is unsecured.  Follow the steps for [setting up Nginx Proxy Manager](/Nginx-Proxy-Manager/GUIDE.md), then return back here to finish setting up Vaultwarden.  
 
+
+## SSL Encryption:  
+
+
