@@ -1,0 +1,31 @@
+services:
+  wg-easy:
+    environment:
+      # Change the server's hostname (clients will connect to):
+      - WG_HOST=[SUBDOMAIN].duckdns.org
+
+      # This is the Adguard Home Container's IP Address
+      - WG_DEFAULT_DNS=192.168.10.3
+
+      # This is the IP Address Range that clients will take when they connect (make sure its available on the network)
+      - WG_DEFAULT_ADDRESS=192.168.200.x
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wireguard
+    volumes:
+      - ~/.wg-easy:/etc/wireguard
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"   # Comment this line out once Nginx Proxy is set up, so that the web GUI port is no longer exposed (meaning you can only navigate to the web GUI through Nginx Proxy) 
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+
+# Only add this section after Nginx Proxy Manager and its network are set up
+networks:
+  default:
+    external: true
+    name: npm_proxy
