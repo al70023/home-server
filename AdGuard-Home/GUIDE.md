@@ -39,7 +39,7 @@ Change into the `/opt/adguardhome` directory, and create a new docker compose fi
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now, on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:3000 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:3000 to log in.  
 
 **To test AdGuard Home's functionality:** 
 * Point any client device's IPv4 and IPv6 DNS to the IP address chosen for the container.
