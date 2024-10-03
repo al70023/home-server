@@ -53,6 +53,8 @@ The next section will cover how to resolve this and have the host machine be abl
 
 ## Docker Container-to-Host Maclvan Bridge  
 
+### Part 1  
+
 First, change your home server's DNS configurations to use the AdGuard Home container as its DNS. Open the following configuration file:    
   
   ```
@@ -81,6 +83,102 @@ You should see your host machine interface now using the set DNS server with the
 However, running a `dig google.com` should return an error, because the host cannot talk to the DNS server in the macvlan docker network.  
 
 To demonstrate this more clearly, trying to `ping x.x.x.x` (the address of the AdGuard Home DNS service) will also time out.  
+
+The solution will be to set up a bridge macvlan on the host that will allow talking between the docker container and the host machine.  
+
+
+### Part 2
+
+We can use systemd-networkd to configure a macvlan interface on the host.  
+
+***Note:**  
+You must follow the naming conventions for the following configuration files. This is because:  
+1. Netplan takes the declarative yaml and writes configuration files to `/run/systemd/network/` with the prefix `10-netplan-`.
+2. The configuration files systemd-networkd finds in its various search paths are sorted and processed in lexical order.
+3. The `00-` prefix, which systemd-networkd's lexical order parses, comes before `10-netplan-*`. This ensures the macvlan interface exists before configuring `enp4s0`.
+4. For example, assuming `enp4s0` is configured in `/etc/netplan/50-cloud-init.yaml`, `netplan apply` will create `/run/systemd/network/10-netplan-enp4s0.network`.
+
+So, you must:  
+* Create your macvlan interface in `/etc/systemd/network/00-mymacvlan0.netdev`
+* Define its networking in `/etc/systemd/network/00-mymacvlan0.network`
+  
+
+Start by creating a network device for our macvlan interface:  
+
+  ```
+  # /etc/systemd/network/00-docker_bridge.netdev
+  [NetDev]
+  Name=docker_bridge
+  Kind=macvlan
+  
+  [MACVLAN]
+  Mode=bridge
+  ```
+
+Now with a device configured, configure the IP address for the macvlan interface (similar to configuring a bridge):  
+
+  ```
+  # /etc/systemd/network/00-docker_bridge.network
+  [Match]
+  Name=docker_bridge
+  
+  [Network]
+  IPForward=yes
+  Address=192.168.10.4/24   # Pick an IP address available on your home network that will be assigned to this interface 
+  Gateway=192.168.10.254    # The gateway/router of your home network to give internet access
+  DNS=192.168.10.3          # Your AdGuard Home DNS service IP address  
+  ```
+
+Tell systemd-networkd that the main physical network interface, `enp4s0`, is part of this interface:  
+
+  ```
+  # /etc/systemd/network/enp4s0.network
+  [Match]
+  Name=enp4s0
+  
+  [Network]
+  MACVLAN=docker_bridge
+  ```
+
+The last piece is to make the association betweek `enp4s0` and the macvlan with a drop-in file that effectively tacks on more configuration:  
+
+  ```
+  # /etc/systemd/network/10-netplan-enp4s0.network.d/10-macvlan.conf
+  [Network]
+  MACVLAN=docker_bridge
+  ```  
+
+Now, enable and restart the service, and if necessary, reboot the whole host:  
+
+  ```
+  sudo systemctl enable systemd-networkd 
+  sudo systemctl restart systemd-networkd
+  ```
+
+You should see the new interface up and routable when running `sudo networkctl`, like so:  
+
+  ```
+  IDX LINK            TYPE     OPERATIONAL SETUP
+  17 docker_bridge   ether    routable    configured
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
