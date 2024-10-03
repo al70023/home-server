@@ -76,7 +76,7 @@ Change into the `/opt/wireguard` directory, and create a new docker compose file
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now, on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:51821 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:51821 to log in.  
 
 **To test Wireguard VPN's functionality:** 
 * Set up a client, such as a smartphone or PC, with the Wireguard configuration.
