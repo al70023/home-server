@@ -1,6 +1,6 @@
 # Nginx Proxy Manager
 
-This docker container exposes port 80 (HTTP), 443 (HTTPS), and 81 (web GUI). 
+This docker container exposes ports 80 (HTTP), 443 (HTTPS), and 81 (web GUI). 
   
 Once the container is spun up, navigate to x.x.x.x:81 to log in, where x.x.x.x is the IP address specified in the configuration file.   
 
