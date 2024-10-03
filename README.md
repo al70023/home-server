@@ -224,7 +224,7 @@ The host server is now ready and set up to begin running containerized services 
 
 # Services
 
-## 1. AdGuard Home DNS Sinkhole & Resolver
+## 1. AdGuard Home DNS Sinkhole
 
 This will be a local DNS Server with blocklists and an upstream resolver.   
   
@@ -240,6 +240,12 @@ This will allow securely tunneling into the host machine from any external clien
 All setup can be found [here](Wireguard/GUIDE.md).
 
 ## 3. Vaultwarden Password Manager
+
+This will be a locally-hosted solution for managing passwords for clients.   
+
+It will not be publicly accessible, and will sync data to client machines so that they have locally stored passwords even when not on the home network.  
+
+All setup can be found [here](Vaultwarden/GUIDE.md).  
 
 ## 4. Nginx Proxy Manager
 
