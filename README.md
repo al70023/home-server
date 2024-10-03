@@ -246,6 +246,62 @@ All setup can be found [here](Wireguard/GUIDE.md).
 ## 5. Portainer 
 
 
+# Additional Configurations
+
+## Setting up Network Adapter or NIC
+
+If having trouble detecting or running on a new network interface, follow these steps to set up.  
+
+First, checked plugged in adapters:  
+
+  ```
+  lsusb
+  ```  
+
+Check network interfaces:  
+
+  ```
+  ip a
+  ifconfig
+  sudo networkctl
+  ```  
+
+Check driver:  
+
+  ```
+  dmesg | grep -i [NIC-driver]
+  ```  
+
+If the interface is detected but down, manually bring it up:
+
+  ```
+  sudo ip link set dev [interface-name] up
+  ```
+
+Configure IP for the interface from DHCP lease:  
+
+  ```
+  # /etc/netplan/50-cloud-init.yaml
+  
+  network:
+  version: 2
+  ethernets:
+    [interface-name]:
+      dhcp4: true
+  ```
+
+And save the changes:  
+
+  ```
+  sudo netplan apply
+  ```
+
+
+#### Resources:
+* Ethtools troubleshooting
+  * [Reddit - Internet Works Very Slow in Linux](https://www.reddit.com/r/linux4noobs/comments/eyt825/internet_works_very_slow_in_linux/)
+  * [Wake-on-LAN](https://wiki.archlinux.org/title/Wake-on-LAN)
+
 
 
 
