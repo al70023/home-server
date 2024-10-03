@@ -47,7 +47,7 @@ Change into the `/opt/vaultwarden` directory, and create a new docker compose fi
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now, on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:8080 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:8080 to log in.  
 
 You should get an error, that your web browser is unsecured.  Follow the steps for [setting up Nginx Proxy Manager](/home-server/Nginx-Proxy-Manager/GUIDE.md), then return back here to finish setting up Vaultwarden.  
 
