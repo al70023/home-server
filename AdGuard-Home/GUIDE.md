@@ -155,12 +155,19 @@ Now, enable and restart the service, and if necessary, reboot the whole host:
   sudo systemctl restart systemd-networkd
   ```
 
-You should see the new interface up and routable when running `sudo networkctl`, like so:  
+You should see the new `docker_bridge` interface up and routable when running `sudo networkctl`, like so:  
 
   ```
   IDX LINK            TYPE     OPERATIONAL SETUP
   17 docker_bridge   ether    routable    configured
   ```
+
+You should also see the new `docker_bridge` interface, with its assigned IP address, by running `ip a`, `ifconfig`, and `resolvectl status`.  
+
+Finally, to ensure the solution is fully working, ping your AdGuard Home DNS IP address from the host, and you should see responses back, as communication is going through the new macvlan interface.  
+
+Any requests to AdGuard that come from the host, such as `dig` or VPN connections, will show up in the AdGuard query logs under the IP address of the macvlan interface.  
+
 
 
 
