@@ -237,7 +237,7 @@ All setup can be found [here](AdGuard-Home/GUIDE.md).
 
 This will allow securely tunneling into the host machine from any external client not on the same home network.  
 
-ALl setup can be found [here](Wireguard/GUIDE.md).
+All setup can be found [here](Wireguard/GUIDE.md).
 
 ## 3. Vaultwarden Password Manager
 
