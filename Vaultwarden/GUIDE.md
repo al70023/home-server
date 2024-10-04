@@ -54,4 +54,10 @@ You should get an error, that your web browser is unsecured.  Follow the steps f
 
 ## SSL Encryption:  
 
+After setting up Nginx Proxy Manager, you should have created a subdomain for Vaultwarden, such as `vw.[YOUR-SUBDOMAIN].duckdns.org`. By attaching this docker container to the `npm_proxy` network, and removing the port exposure of 8080, you should now be able to access Vaultwarden at that subdomain through Nginx Proxy Manager, where you will see the browser connection secured and encrypted with SSL.  
 
+Now, you can finish setting up Vaultwarden, create an account, and log in.  
+
+Download the Bitwarden mobile app, desktop app, and browser extension, and link your locally-hosted Vaultwarden service to it with the domain address created in Nginx Proxy Manager.  
+
+You should now have a successful password manager service running, with no exposed ports and hosted completely internally within the home network.  
