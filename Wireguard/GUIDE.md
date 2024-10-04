@@ -4,7 +4,7 @@ This docker container exposes ports 51820/udp, and 51821/tcp (Web GUI).
 
 This setup requires using a Dynamic DNS service, to have a public address for your home network to point the VPN to. This will also require port forwarding 51820 on your home network router to the host IP address, so requests can reach your server running Wireguard.  
   
-Once the container is spun up, navigate to x.x.x.x:51821 to log in, where x.x.x.x is the IP address specified in the configuration file.   
+Once the container is spun up, navigate to `x.x.x.x:51821` to log in, where `x.x.x.x` is the IP address specified in the configuration file.   
 
 Later, once Nginx Proxy Manager is configured, go back and remove the line that exposes port 51821, as the web GUI will only be accessible through the Proxy. Also, you will remove the default network created with this container, and instead attach this to the Nginx proxy docker network.  
 
@@ -76,7 +76,7 @@ Change into the `/opt/wireguard` directory, and create a new docker compose file
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:51821 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at `[IP-ADDRESS]:51821` to log in.  
 
 **To test Wireguard VPN's functionality:** 
 * Set up a client, such as a smartphone or PC, with the Wireguard configuration.
