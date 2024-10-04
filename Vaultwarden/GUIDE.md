@@ -2,7 +2,7 @@
 
 This docker container exposes port 8080 (host) to port 80 (container) for the web GUI. 
   
-Once the container is spun up, navigate to x.x.x.x:8080 to log in, where x.x.x.x is the IP address specified in the configuration file.   
+Once the container is spun up, navigate to `x.x.x.x:8080` to log in, where `x.x.x.x` is the IP address specified in the configuration file.   
 
 Later, once Nginx Proxy Manager is configured, go back and remove ports section, as the web GUI will only be accessible through the Proxy. Also, you will remove the default network created with this container, and instead attach this to the Nginx proxy docker network.  
 
@@ -47,7 +47,7 @@ Change into the `/opt/vaultwarden` directory, and create a new docker compose fi
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:8080 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at `[IP-ADDRESS]:8080` to log in.  
 
 You should get an error, that your web browser is unsecured.  Follow the steps for [setting up Nginx Proxy Manager](/Nginx-Proxy-Manager/GUIDE.md), then return back here to finish setting up Vaultwarden.  
 
