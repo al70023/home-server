@@ -78,7 +78,9 @@ Now, go to your dashboard, and select the "Proxy Hosts" tab.
 
 Select "Add Proxy Host".  
 
-For each of the previously set up services, such as AdGuard Home, Vaultwarden, Wireguard, and Portainer, set up a domain name to access it securely with SSL certificates.   
+For each of the previously set up services, such as AdGuard Home, Vaultwarden, Wireguard, and Portainer, set up a subdomain to access it securely with SSL certificates.  
+
+The format of this subdomain name should be `[SERVICE].[YOUR-SUBDOMAIN].duckdns.org`, where `[SERVICE]` can be anything you like to name the service, such as wireguard or wg for Wireguard, and `[YOUR-SUBDOMAIN]` is the one chosen for Duck DNS, which you also created SSL certificates for.  
 
 Create a domain name, use the name of the container in **Forward Hostname/IP**, and the port of the web GUI for that container (the port does not need to be exposed in its docker compose file). Select the SSL certificate created for your subdomain, and attach it to the proxy host.  
 
