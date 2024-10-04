@@ -2,7 +2,7 @@
 
 This docker container exposes ports 53 (DNS), 80 (HTTP), and 3000 (Web GUI initial setup).  
   
-Once the container is spun up, navigate to x.x.x.x:3000 to log in, where x.x.x.x is the IP address specified in the configuration file.   
+Once the container is spun up, navigate to `x.x.x.x:3000` to log in, where `x.x.x.x` is the IP address specified in the configuration file.   
 
 ## Resources:
 * Docker macvlan networks with IPV6
@@ -39,7 +39,7 @@ Change into the `/opt/adguardhome` directory, and create a new docker compose fi
 
 Use [the attached configuration file](docker-compose.yml), paste it into the `docker-compose.yml`, and save it.  
 
-Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:3000 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at `[IP-ADDRESS]:3000` to log in.  
 
 **To test AdGuard Home's functionality:** 
 * Point any client device's IPv4 and IPv6 DNS to the IP address chosen for the container.
@@ -66,7 +66,7 @@ Uncomment the following two lines, and make these changes:
 `#DNS=` --> `DNS=x.x.x.x xx:xx:xx:xx:xx:xx:xx:xx`  
 `#DNSStubListener` --> `DNSStubListener=no`  
 
-Where **_x.x.x.x_** is the IPv4 address of the AdGuard Home DNS Server specified in the docker compose file, and **_xx:xx:xx:xx:xx:xx:xx:xx_** is optionally added if the IPv6 address if enabled.  
+Where `x.x.x.x` is the IPv4 address of the AdGuard Home DNS Server specified in the docker compose file, and `xx:xx:xx:xx:xx:xx:xx:xx` is optionally added if the IPv6 address if enabled.  
 
 Restart the daemon:  
 
@@ -167,28 +167,3 @@ You should also see the new `docker_bridge` interface, with its assigned IP addr
 Finally, to ensure the solution is fully working, ping your AdGuard Home DNS IP address from the host, and you should see responses back, as communication is going through the new macvlan interface.  
 
 Any requests to AdGuard that come from the host, such as `dig` or VPN connections, will show up in the AdGuard query logs under the IP address of the macvlan interface.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
