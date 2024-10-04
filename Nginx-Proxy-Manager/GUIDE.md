@@ -2,7 +2,7 @@
 
 This docker container exposes ports 80 (HTTP), 443 (HTTPS), and 81 (web GUI). 
   
-Once the container is spun up, navigate to x.x.x.x:81 to log in, where x.x.x.x is the IP address specified in the configuration file.   
+Once the container is spun up, navigate to `x.x.x.x:81` to log in, where `x.x.x.x` is the IP address specified in the configuration file.   
 
 This setup also involves creating a custom bridge docker network for managing this container, as well as any other services that will be accessed through the Proxy.
 
@@ -57,7 +57,7 @@ Finally, create a custom bridge network that is specified in the configuration f
   docker network create npm_proxy
   ```
 
-Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at [IP-ADDRESS]:81 to log in.  
+Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at `[IP-ADDRESS]:81` to log in.  
 
 
 ## Adding SSL Certificates:  
