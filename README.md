@@ -257,8 +257,15 @@ This will also use Let's Encrypt SSL certificates, for HTTPS encryption on the b
 
 All setup can found [here](Nginx-Proxy-Manager/GUIDE.md).  
 
-## 5. Portainer 
+## 5. Portainer  
 
+Since Portainer does not have a docker compose file, use the command line to alter its network configurations to be able to integrate it with Nginx Proxy Manager.  
+
+Use `docker network ls` to find the default bridge network that was created with Portainer, then use `docker network rm [NETWORK-NAME]` to remove it.  
+
+Finally, attach it to the proxy network with `docker network connect npm_proxy portainer`.  
+
+Now, you can create a subdomain for it on Nginx Proxy Manager and access portainer securely through that subdomain, without exposing the web GUI port.  
 
 # Additional Configurations
 
