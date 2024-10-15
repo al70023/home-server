@@ -272,7 +272,9 @@ Now, you can create a subdomain for it on Nginx Proxy Manager and access portain
 
 This is a locally-hosted recipe web app.
 
-Users can create or import recipes, set meal plans, manage groups, and more.
+Users can create or import recipes, set meal plans, manage groups, and more.  
+
+This will be accessible via the Nginx Proxy, to provide SSL certificates on web URL.  
 
 All setup can be found [here](Mealie/GUIDE.md)  
 
