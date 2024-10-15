@@ -16,7 +16,7 @@ services:
       ALLOW_SIGNUP: "true"
       PUID: 1000
       PGID: 1000
-      TZ: America/Chicago
+      TZ: America/Chicago    # Choose your current timezone
       MAX_WORKERS: 1
       WEB_CONCURRENCY: 1
       BASE_URL: https://mealie.[INTERNAL-SUBDOMAIN].duckdns.org  # replace with your domain
