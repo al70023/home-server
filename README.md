@@ -276,7 +276,7 @@ Users can create or import recipes, set meal plans, manage groups, and more.
 
 This will be accessible via the Nginx Proxy, to provide SSL certificates on web URL.  
 
-All setup can be found [here](Mealie/GUIDE.md)  
+All setup can be found [here](Mealie/GUIDE.md).    
 
 
 # Additional Configurations
