@@ -38,10 +38,12 @@ Use [the attached configuration file](docker-compose.yml), paste it into the `do
 Now spin up the container with `docker compose up -d`, and on any device on the home network, navigate to the web GUI on your browser at `[IP-ADDRESS]:9925` to log in.  
 
 
-## SSL Encryption:  
+## Nginx Proxy:  
 
 After ensuring service can run exposed on ports, move the web GUI behind the Nginx Proxy and remove the ports exposure.  
 
-Create a subdomain for Mealie, such as `mealie.[YOUR-SUBDOMAIN].duckdns.org`. By attaching this docker container to the `npm_proxy` network, and removing the port exposure of 9925, you should now be able to access Mealie at that subdomain through Nginx Proxy Manager, where you will see the browser connection secured and encrypted with SSL.  
+On Nginx Proxy Manager, create a subdomain for Mealie, such as `mealie.[YOUR-SUBDOMAIN].duckdns.org`, and add the SSL Certificate to it.  
+
+By attaching this docker container to the `npm_proxy` network, and removing the port exposure of 9925, you should now be able to access Mealie at that subdomain through Nginx Proxy Manager, where you will see the browser connection secured and encrypted with SSL.  
 
 Now, you can finish setting up Mealie, create an account, and log in.  
