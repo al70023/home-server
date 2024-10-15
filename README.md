@@ -267,6 +267,16 @@ Finally, attach it to the proxy network with `docker network connect npm_proxy p
 
 Now, you can create a subdomain for it on Nginx Proxy Manager and access portainer securely through that subdomain, without exposing the web GUI port.  
 
+
+## 6. Mealie  
+
+This is a locally-hosted recipe web app.
+
+Users can create or import recipes, set meal plans, manage groups, and more.
+
+All setup can be found [here](Mealie/GUIDE.md)  
+
+
 # Additional Configurations
 
 ## Setting up Network Adapter or NIC
