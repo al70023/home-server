@@ -279,6 +279,14 @@ This will be accessible via the Nginx Proxy, to provide SSL certificates on web 
 All setup can be found [here](Mealie/GUIDE.md).    
 
 
+## 7. Frigate NVR 
+
+This is a self-hosted home surveillance system.    
+
+This will be accessible via the Nginx Proxy, to provide SSL certificates on web URL.  
+
+All setup can be found [here](Frigate/GUIDE.md).    
+
 # Additional Configurations
 
 ## Setting up Network Adapter or NIC
