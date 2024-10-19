@@ -1,0 +1,16 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:      # Comment this section out once Nginx Proxy Manager is set up, and access web ui through proxy securely
+      - "3010:3001"
+    volumes:
+      - ./data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+# Only add this section after setting up Nginx Proxy Manager
+networks:
+  default:
+    external: true
+    name: npm_proxy
