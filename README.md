@@ -287,6 +287,15 @@ This will be accessible via the Nginx Proxy, to provide SSL certificates on web 
 
 All setup can be found [here](Frigate/GUIDE.md).    
 
+
+## 8. Uptime Kuma Health Monitor
+
+This service can be used to monitor other services, containers, ports, and web pages.      
+
+This will be accessible via the Nginx Proxy, to provide SSL certificates on web URL.  
+
+All setup can be found [here](Uptime-Kuma/GUIDE.md).    
+
 # Additional Configurations
 
 ## Setting up Network Adapter or NIC
