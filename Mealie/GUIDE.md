@@ -7,7 +7,7 @@ Once the container is spun up, navigate to `x.x.x.x:9000` to log in, where `x.x.
 Once Nginx Proxy Manager is configured, go back and remove ports section, as the web GUI will only be accessible through the Proxy. Also, remove the default network created with this container, and instead attach this to the Nginx proxy docker network.  
 
 
-## Mealie:
+## Resources:
 * Setup
   * [Mealie Wiki -Installation](https://docs.mealie.io/documentation/getting-started/installation/installation-checklist/)  
 
