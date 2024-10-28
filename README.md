@@ -296,6 +296,15 @@ This will be accessible via the Nginx Proxy, to provide SSL certificates on web 
 
 All setup can be found [here](Uptime-Kuma/GUIDE.md).    
 
+
+## 9. Watchtower Docker Container Automatic Updates
+
+This service can be used to automate the updating of all other docker containers on the host, or to provide notifications for available image updates.  
+
+There is no web GUI, and no port exposure used for this docker container.  
+
+All setup can be found [here](Watchtower/GUIDE.md).  
+
 # Additional Configurations
 
 ## Setting up Network Adapter or NIC
