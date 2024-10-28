@@ -1,0 +1,12 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      # Use this option for adding specific containers, by name, that you do not want to automatically update with Watchtower
+      #- WATCHTOWER_DISABLE_CONTAINERS=
+      - WATCHTOWER_ROLLING_RESTART=true
