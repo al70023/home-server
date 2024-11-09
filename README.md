@@ -305,6 +305,15 @@ There is no web GUI, and no port exposure used for this docker container.
 
 All setup can be found [here](Watchtower/GUIDE.md).  
 
+
+## 10. Restic Docker Container Scheduled Backups
+
+This service is crucial to automate the backups of all other docker containers on the host, via incremental snapshots.  
+
+There is no web GUI, and no port exposure used for this docker container.  
+
+All setup can be found [here](Restic/GUIDE.md).  
+
 # Additional Configurations
 
 ## Setting up Network Adapter or NIC
