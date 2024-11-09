@@ -1,0 +1,55 @@
+services:
+  backup:
+    image: mazzolino/restic
+    container_name: restic
+    hostname: [YOUR_DESIRED_HOSTNAME]
+    environment:
+      RUN_ON_STARTUP: "true"        # Change as you wish
+      BACKUP_CRON: "0 */12 * * *"   # This is twice daily, i.e., every 12 hours
+      RESTIC_REPOSITORY: /restic
+      RESTIC_PASSWORD: [YOUR_SECURE_PASSWORD]   # Note: losing this means losing access to your backups
+      RESTIC_BACKUP_SOURCES: /mnt/volumes
+      RESTIC_COMPRESSION: auto
+      RESTIC_BACKUP_ARGS: >-
+        --tag [ANY_DESIRED_TAGS] # Add tags, whatever you need to mark backups
+        --verbose
+      RESTIC_FORGET_ARGS: >-     # Change as required
+        --keep-last 10
+        --keep-daily 7
+        --keep-weekly 5
+        --keep-monthly 12
+      TZ: America/Chicago
+    volumes:
+      - /home/backups:/restic         # Change the left hand side to where you want to store the backups
+      - /home/backups/tmp-for-restore:/tmp-for-restore     # Use this folder for restores - can view each container
+      - /opt:/mnt/volumes:ro   # What should be backed up (where your docker directories are on the host)
+    security_opt:
+      - no-new-privileges:true
+
+  prune:
+    image: mazzolino/restic
+    container_name: restic-prune
+    hostname: [YOUR_DESIRED_HOSTNAME]  # Same as above
+    environment:
+      RUN_ON_STARTUP: "true"
+      PRUNE_CRON: "0 0 4 * * *"
+      RESTIC_REPOSITORY: /restic
+      RESTIC_PASSWORD: [YOUR_SECURE_PASSWORD]   # Same as above
+      TZ: America/Chicago
+    security_opt:
+      - no-new-privileges:true
+
+  check:
+    image: mazzolino/restic
+    container_name: restic-check
+    hostname: [YOUR_DESIRED_HOSTNAME]  # Same as above
+    environment:
+      RUN_ON_STARTUP: "false"
+      CHECK_CRON: "0 15 5 * * *"
+      RESTIC_CHECK_ARGS: >-
+        --read-data-subset=10%
+      RESTIC_REPOSITORY: /restic
+      RESTIC_PASSWORD: [YOUR_SECURE_PASSWORD]   # Same as above
+      TZ: America/Chicago
+    security_opt:
+      - no-new-privileges:true
