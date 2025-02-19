@@ -24,7 +24,7 @@ Use existing subdomain that points to an internal network IP address (i.e. `192.
 
 If you do not already have one, go to [duckdns.org](https://www.duckdns.org/) and sign in using your preferred method. Then, create a domain with any name that you like, as long as it isn’t already taken.  
 
-Replace the IP address on this subdomain with the address of your host server on the home network, so that this domain can only be accessed internally within your home network, i.e. `192.168.10.x`.     
+Replace the IP address on this subdomain with the **address of your host server** on the home network, so that this domain can only be accessed internally within your home network, i.e. `192.168.10.x`.     
 
 
 ## Docker Setup:  
