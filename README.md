@@ -249,7 +249,7 @@ All setup can be found [here](Vaultwarden/GUIDE.md).
 
 ## 4. Nginx Proxy Manager  
 
-This will serve as local dns rewrites for docker services running on the server.   
+This will serve as local DNS rewrites for docker services running on the server.   
 
 Users will no longer use IP-ADDRESS:PORT to navigate to a service on their browser, and instead use the URL assigned.  
 
